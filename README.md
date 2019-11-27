@@ -1,2 +1,1 @@
-# Internship
-notes during the time of internship_ here at Kritter!
+notes during the time of internship at kritter software tech
