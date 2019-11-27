@@ -1,0 +1,25 @@
+https://www.w3resource.com/sql-exercises/sql-subqueries-exercises.php#SQLEDITOR
+
+1. select first_name,last_name from employees where salary > (select salary from employee where employee_id=163);
+
+2. select first_name,last_name,salary,department_id,job_id from employees where job_id= (select job_id from employees where employee_id=169);
+
+3. select first_name,last_name,salary,department_id from employees where salary in (select MIN(salary) from employees group by department_id);
+
+4. select employee_id,first_name,last_name from employees where salary > (select AVG(salary) from employees);
+
+5. select first_name,last_name,employee_id,salary from employees where manager_id in (select employee_id from employees where first_name='Payam');
+
+6. select department_id,first_name,last_name,job_id,department_name from employees inner join departments USING (department_id) where department_name='Finance';
+
+7. select * from employees where salary = 3000 and manager_id=121;
+
+8. select * from employees where employee_id = 134 or employee_id =159 or employee_id =183;
+	or
+   select * from employees where employee_id in (134,159,183);
+
+9. select * from employees where salary between 1000 and 3000;
+
+10. SELECT * FROM employees WHERE salary BETWEEN (SELECT MIN(salary) FROM employees) AND 2500;
+
+11. 
