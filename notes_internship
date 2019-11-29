@@ -1,0 +1,205 @@
+
+$ sudo apt-get install make
+E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+
+For the above error, we need to check what other process is using APT package and then kill it.
+
+:::: ps aux | grep -i apt // finds the id of the process using APT
+
+(https://itsfoss.com/could-not-get-lock-error/)
+
+
+TOMCAT INSTALLATION ************
+https://tecadmin.net/install-tomcat-7-on-ubuntu/
+
+
+JDK,JVM,JRE***************
+https://www.javaworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html
+
+NGINX
+$ service nginx start (asks for pwd).
+
+$ service nginx stop
+
+RSYNC 
+Rsync file2 file3  //rsync both files on the local machine
+
+DELETING LINES IN VIM
+
+
+GIT
+→ git init to make new public repo
+→ git config --list (will show you the basic info)
+→ $ git rm --cached my-file.ts
+ (to remove a file from staging area)
+→ git reset file5 (opp of add and same as above command)
+→ git commit -a[all] -m “msg” (at the same time)
+					
+UNDO THE COMMIT
+
+→ Git reset --soft HEAD^ (undo the commit and moved before head)
+(waps staging area m aata h) Undo the last commit in the current branch and move HEAD back by one commit."
+→ git add remaining_file.txt
+→ git commit --amend “remaining file”
+→ echo "# newrepo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/parulkhanna14/newrepo.git
+git push -u origin master
+→ -u because next time just write “git push”
+→ git branch (lists all branches)
+→  git branch user-profile (makes the branch but doesn’t change it)
+→ git checkout user-profile
+Or simply git -b checkout user-profile
+→ merge 
+Merges any sub branch to the main branch
+Go to main branch and git merge user-profile
+→ git branch -d user-profile (deletes a branch)
+→ git reset --hard (undo the commit as well as deletes the modifications till the last commit)
+
+$git revert HEAD~3
+Revert the changes specified by the fourth last commit in HEAD and create a new commit with the reverted changes.
+$git revert -n master~5..master~2
+Revert the changes done by commits from the fifth last commit in master (included) to the third last commit in master (included), but do not create any commit with the reverted changes. The revert only modifies the working tree and the index.
+→ git merge parulkhanna
+You make changes to the file in the working directory and then you add those files in the staging area. From that area only files can be committed to the git repository.
+
+General work flow: 
+Add
+commit
+Pull
+Push
+> First cloned the repository in the local system using the “git clone URL”
+> Changed to the new directory
+> created a branch using “git checkout -b parulkhanna(branch name)” 
+	-b flag means creating a new branch 
+	By default a branch is made on another branch (wherever you were working)
+	In this case new branch was made based on the master branch itself
+	Else you could have given branch name followed by existing branch name 
+
+
+MERGE
+git fetch (so that the files should be updated)
+git  branch -va (gives detailed info which repo is behind any updation)
+
+DELETING A BRANCH
+git  branch -d <branch name>
+https://www.git-tower.com/learn/git/faq/git-merge-branch
+https://www.atlassian.com/git/tutorials/using-branches/git-merge
+ 
+RESET ::
+HARDRESET/SOFTRESET
+
+SQL
+
+Multiple inserts
+Insert into tablename values (),(),();
+
+LIKE 
+Select * from first where gender like “%male%”;
+%- one or more occurences
+_ one occurence
+
+TOP/LIMIT
+select * from first where genger="male" limit 3;
+
+DROPPING A NOT NULL CONSTRAINT
+alter table second change name name varchar(20);
+
+INSERT CURRENT DATE TIME:
+curdate() → but it gives only the date and time as 00:00:00
+now() → gives proper date and time of the system
+
+UNION clause
+Unions two select statements (must have same columns and in same order as well) but eliminates the duplicate rows
+
+UNION ALL
+Includes the duplicate rows as well.
+
+// INTERSECT/EXCEPT
+
+// INTERSECT → which is there in both select statements i.e. the common ones.
+
+// EXCEPT → which is there in the first select statement but not in the second one.
+
+JOIN
+Select * from cust,orders where id=custid;
+
+→ Cross join :  select * from  cust cross join orders; 
+ Gives all the combinations from rows from first table with each row in table 2. I.e. m*n combinations/rows.
+
+→ Inner join :  intersection
+select id,name,oid from cust,orders where cust.id=orders.custid;
+OR
+select id,name,oid from cust inner join orders on cust.id=orders.custid;
+returns rows that satisfy the conditions in both the tables.
+ → Outer joins: 
+left/right joins
+Select id,name,oid from cust LEFT JOIN orders on id=custid;
+
+ON and USING constraints
+
+Same use but USING can be used only on the same column name in both tables.
+
+Subqueries: 
+
+→ Must be enclosed in paranthesis.
+→ if inner query returns null then outer query will not return anything if compared in the where clause.
+
+JOINING MORE THAN 2 TABLES
+$ select empname from employee inner join empdept on employee.dept=empdept.deptid inner join empsalary USING (empid) where ispermanent='yes' and deptname="HR";
+
+
+
+
+
+
+Enabling and disabling keys
+
+ALTER INDEX employees_pk ON employees
+DISABLE;
+
+ALTER INDEX employees_pk ON employees
+REBUILD;
+
+Adding primary key
+$ alter table empdept add PRIMARY KEY (depthead);
+
+
+Adding foreign key
+$ alter table employee add FOREIGN KEY(dept) REFERENCES empdept(deptid);
+
+Drop keys
+$ alter table employee drop FOREIGN KEY employee_ibfk_1 , drop KEY dept;
+
+$ create index idx on <table name> (columns);
+$show indexes from <tablename>;
+
+$select * from cust use index(idx) where country=”ireland”;
+
+$alter table cust drop PRIMARY KEY;
+$alter table cust add PRIMARY KEY(id);
+
+$alter table employee drop FOREIGN KEY <fk name>;
+$alter table employee add FOREIGN KEY (dept) REFERENCES empdept(deptid);
+
+$alter table employee add unique (empname);
+$alter table employee drop index empname;
+
+$set FOREIGN_KEY_CHECK=0;
+$set FOREIGN_KEY_CHECK=1;
+
+NORMALIZATION
+→ 1NF
+Every column should have single value
+Each record must be unique.
+→ 2NF
+Must be 1NF
+Single column pk
+→ 3NF
+Must be 2NF
+No transitive dependencies (all non-key attributes depends on primary key only in all tables)
+
+
