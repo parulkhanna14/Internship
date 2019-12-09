@@ -1,4 +1,3 @@
-
 $ sudo apt-get install make
 E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
 E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
@@ -59,6 +58,9 @@ Go to main branch and git merge user-profile
 → git branch -d user-profile (deletes a branch)
 → git reset --hard (undo the commit as well as deletes the modifications till the last commit)
 
+→ git revert HEAD (requires a reference here HEAD for the latest commit)
+→ reset only works one step back at a time
+
 $git revert HEAD~3
 Revert the changes specified by the fourth last commit in HEAD and create a new commit with the reverted changes.
 $git revert -n master~5..master~2
@@ -91,6 +93,11 @@ https://www.atlassian.com/git/tutorials/using-branches/git-merge
  
 RESET ::
 HARDRESET/SOFTRESET
+→ git stash push -m “msg”
+
+Scenario: You have done a git reset --hard for some unwanted changes, but then you realized that you actually needed them.
+Solution: git reflog comes to your rescue! It is an amazing command for recovering project history and it can recover almost anything.
+
 
 SQL
 
@@ -201,5 +208,283 @@ Single column pk
 → 3NF
 Must be 2NF
 No transitive dependencies (all non-key attributes depends on primary key only in all tables)
+____________________________________________________________________________________________________________________________________________
+
+MAVEN
+
+Software management and comprehension tool based on POM (Project Object Model)
+General build system job include: 
+Compile source code
+Copy resource
+Compile and run tests
+Package project
+Deploy project 
+Cleanup 
+Maven manages :
+→ builds
+→ dependencies + versions
+→ Documentation
+
+Maven UIDs (Unique Identifiers)
+→ group id
+→ artifact id
+→ version
+
+We can refer to any project using these UIDs and even some one can refer to us using the same.
+
+We can add dependencies using these UIDs
+
+What’s POM?
+It’s an XML file containing the project’s information and configuration details used by maven to build the project.
+(describes a project, group id,artifact id, version, dependencies, plugins,etc)  
+In a POM file (general structure)
+<project>
+	<groupid>	{apne project ka}
+	<artifact id>
+	<version>
+	<packaging> (jar,war,etc)
+<dependencies>
+	<dependency>	</dependency> . . . . .
+</dependencies>
+<build>				//to extend the build process
+	<plugins>
+		<plugin>	</plugin> . . . . . .
+	</plugins>
+</build>
+</project>
+
+Archetype is nothing but a template.
+It’s a plugin which tell maven to create a project of specified template (like quickstart).
+
+******************Maven error******************
+****************************************************************************************************
+→ plugin error
+Go to ~/.bashrc file 
+And write the following path at the end
+
+export MAVEN_OPTS=-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2
+
+And then source ~/.bashrc
+
+→ no main attribute error
+no main manifest attribute, in /home/sciera/git projects/Internship/consumer Banking/target/consumer Banking-1.0-SNAPSHOT.jar
+
+Soln: 
+Add the following plugin
+<plugin> 
+
+                <!-- Building an executable jar -->
+
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                  <archive>
+                    <manifest>
+
+                    <!-- give full qualified name of your main class-->
+                      <mainClass>com.javahungry.Demo</mainClass>
+
+                    </manifest>
+                  </archive>
+                </configuration>
+    </plugin>
+****************************************************************************************************
+
+Plugins are included in POM file 
+→ each plugin can have multiple goals.
+→ we can specify the phase from where plugin should start it’s execution.
+→ maven uses “archetype” plugin to create a project!
+
+Package -- compiles and packages the files (in jar if jar is specified in the POM file) and places the jar file in the target directory.
+Install -- compiles and packages the code and place it in the local repository for other projects to use it.
+→ EXTERNAL DEPENDENCIES
+Dependencies can be added in the pom file with the UIDs and system path specified!
+(scope as system)
+
+$ mvn site (creates the documentation in the target folder).
+
+
+Dependencies vs plugins
+we can say, plugin is a Jar file which executes the task, and dependency is a Jar which provides the class files to execute the task
+
+→ Maven creates the documentation using a documentation-processing engine called Doxia
+
+→ mvn clean package -U (Updates the versions i.e. SNAPSHOT)
+
+→ Multi-module projects
+
+Common dependencies can be placed in a parent pom file. (Transitive Dependency Mechanism)
+ -P specifies which profile Maven is to run under. Projects can define multiple profiles which may pull in different dependencies, so this is required if you have a project that can do that.
+
+-D define a system property
+
+
+run.sh  script in the main module
+#!/bin/sh
+
+CLASSPATH=
+
+for f in target/*.jar; do
+CLASSPATH=${CLASSPATH}:$f;
+done
+
+for f in target/lib/*.jar; do
+CLASSPATH=${CLASSPATH}:$f;
+done
+
+MAINCLASS=[yha accordingly likh ly]
+
+exec java -cp "$CLASSPATH" $MAINCLASS
+
+With this plugin
+<plugin>
+<artifactId>maven-dependency-plugin</artifactId>
+<executions>
+<execution>
+<phase>install</phase>
+<goals>
+<goal>copy-dependencies</goal>
+</goals>
+<configuration>
+<outputDirectory>
+${project.build.directory}/lib
+</outputDirectory>
+</configuration>
+</execution>
+</executions>
+</plugin>
+
+mvn flags::
+-am → also make i.e. if some project is specified then also build the other required modules (for dependencies issues).
+-pl → builds the specified project not all of them.
+-P → activates the specified profiles
+PROFILES
+Profiles are alternative set of configurations thats sets or overrides the default values. We can customize the build configuration using profile. Then we can use flag to tell maven to execute goals with specific profile.
+<profiles> (1)			//overrides the default maven’s compile configuration
+            <profile>
+                <id>production</id> (2)
+                    <build> (3)
+                            <plugins>
+                                <plugin>
+                                    <groupId>org.apache.maven.plugins</groupId>
+                                    <artifactId>maven-compiler-plugin</artifactId>
+                                    <configuration>
+                                        <debug>false</debug> (4)
+                                            <optimize>true</optimize>
+                                    </configuration>
+                                </plugin>
+                            </plugins>
+                    </build>
+            </profile>
+    </profiles>
+→ It overrides the default settings thus it is written in the end of the pom file.
+→ it can have any tag/element that a <project> tag can have.
+→ it is executed using -P<profile id> flag
+	Eg	mvn install -Pproduction
+
+→ To skip test at command line
+ mvn package -Dmaven.test.skip=true
+
+
+MAVEN_OPTS
+MAVEN_OPTS is used to configure a bit of extra memory for Maven as it will run an embedded Apache Tomcat application server with Alfresco Repo, Share, and Solr web applications deployed. It also sets the Spring Loaded Java Agent so it is available during Rapid Application Development (RAD).
+→ This variable contains parameters used to start up the JVM running Maven and can be used to supply additional options to globally to Maven. E.g. JVM memory settings could be defined with the value -Xms256m -Xmx512m.
+
+→ Open your mvn.sh file and add the following line:
+export MAVEN_OPTS=-Xmx512m
+this will allow to specify java heap space based on your project needs.
+
+Read more: https://javarevisited.blogspot.com/2011/08/increase-heap-size-maven-ant.html#ixzz67E1D95eD
+
+JAVA_OPTS
+JAVA_OPTS is the standard environment variable that some servers and other java apps append to the call that executes the java command.
+For example in tomcat if you define JAVA_OPTS='-Xmx1024m', the startup script will execute java org.apache.tomcat.Servert -Xmx1024m
+If you are running in Linux/OSX, you can set the JAVA_OPTS, right before you call the startup script by doing
+JAVA_OPTS='-Djava.awt.headless=true'
+
+
+****************************************************************************************************
+FILE SYSTEM INCONSISTENCY ERROR::
+
+https://prognotes.net/2018/04/linux-mint-initramfs-prompt-at-boot/
+fsck <system path> -y(for yes by default)
+And then reboot
+****************************************************************************************************
+
+JAVA
+INTERFACE (total abstraction)
+If a class implements an interface and does not provide method bodies for all functions specified in the interface, then the class must be declared abstract. That means all the methods in an interface are declared with an empty body and are public and all fields are public, static and final by default.
+Interfaces are used to implement abstraction. So the question arises why use interfaces when we have abstract classes?
+The reason is, abstract classes may contain non-final variables, whereas variables in interface are final, public and static.
+JAVA ENUM
+Enums are used when we know all possible values at compile time, such as choices on a menu, rounding modes, command line flags, etc. It is not necessary that the set of constants in an enum type stay fixed for all time.
+In Java (from 1.5), enums are represented using enum data type. Java enums are more powerful than C/C++ enums . In Java, we can also add variables, methods and constructors to it. The main objective of enum is to define our own data types(Enumerated Data Types).
+Java Enum internally inherits the Enum class, so it cannot inherit any other class
+It is possible for a Java enum class to have abstract methods too. If an enum class has an abstract method, then each instance of the enum class must implement it.
+Using an abstract method is useful when you need a different implementation of a method for each instance of a Java enum.
+Enum cannot inherit any class but can implement interfaces.
+ENUM SET
+EnumSet<Level> enumSet = EnumSet.of(Level.HIGH, Level.MEDIUM);
+ENUM MAP
+Java also contains a special Java Map implementation which can use Java enum instances as keys. Here is a Java EnumMap example:
+EnumMap<Level, String> enumMap = new EnumMap<Level, String>(Level.class);
+enumMap.put(Level.HIGH  , "High level");
+enumMap.put(Level.MEDIUM, "Medium level");
+enumMap.put(Level.LOW   , "Low level");
+String levelValue = enumMap.get(Level.HIGH);
+JAVA JDBC
+Java Database Connectivity.
+It’s a java API ( to connect and execute the query with the database.)
+It uses drivers to connect to the databases:
+JDBC-ODBC Bridge Driver, (Open Database Connectivity → ODBC by microsoft)
+Native Driver,
+Network Protocol Driver, and
+Thin Driver
+Earlier it used to be ODBC api but it was written in C (platform dependent) thus came JDBC.
+General steps:
+Register the Driver class (using forName() of Class)		Class.forName(“com.mysql.jdbc.Driver);
+Create connection (getConnection() method of DriverManager class)  			Connection conn=DriverManager.getConnection(”jdbc:mysql;://localhost:3306/db”,”parul”,”Kritter12!”);
+Create statement (createStatement() method of Connection interface)			Statement st=conn.createStatement();
+Execute queries (executeQuery() method of Statement interface)				Statement, CallableStatement,and PreparedStatement interfaces		Resultset rs=st.executeQuery(“select * from cust”);
+Close connection									conn.close();
+For Statement interface → createStatement();
+For PreparedStatement Interface → prepareStatement(); (extends Statement and you can give dynamic arguments as well!)
+TRANSACTION
+It’s like a group of sql queries.
+Have commit() and rollback() methods!
+ 
+SINGLETON CLASS 
+A design pattern.
+Means define a class with only one instance which can be globally accessed.
+A class must ensure that only a single instance should be created and single object can be used by all other classes.
+Two types:
+Early instantiation → at load time( we create the instance of the class at the time of declaring the static data member, so instance of the class is created at the time of classloading.).
+Lazy instantiation → at required time(we create the instance of the class in synchronized method or synchronized block, so instance of the class is created when required.) synchronize method will block the object for it’s use so it can’t be accessed by any other class.
+To have a singleton class, we need to have 1. A static member (object as it will take memory only once), 2. A private constructor → as it will protect the constructor to create  an object from outside the class, 3. Static factory method to give the object a global point of access.
+SETS
+It’s an interface which extends Collection class.
+Unordered collection in which duplicates are not allowed.
+Has methods like add,remove,clear,size to enhance functionality.
+Sets are implemented in Enumset,hashset,linkedhashset,treeset :: 
+java.util.EnumSet
+java.util.HashSet
+java.util.LinkedHashSet
+java.util.TreeSet
+Each of these Set implementations behaves a little differently with respect to the order of the elements when iterating the Set, and the time (big O notation) it takes to insert and access elements in the sets.
+HashSet is backed by a HashMap. It makes no guarantees about the sequence of the elements when you iterate them.
+LinkedHashSet differs from HashSet by guaranteeing that the order of the elements during iteration is the same as the order they were inserted into the LinkedHashSet. Reinserting an element that is already in the LinkedHashSet does not change this order.
+TreeSet also guarantees the order of the elements when iterated, but the order is the sorting order of the elements. In other words, the order in which the elements would be sorted if you used a Collections.sort() on a List or array containing these elements. This order is determined either by their natural order (if they implement Comparable), or by a specific Comparator implementation.
+JAVA ABSTRACT CLASSES
+Abstract class in Java is similar to interface except that it can contain default method implementation. An abstract class can have an abstract method without body and it can have methods with implementation also.
+only an abstract class can contain abstract methods
+In Java, it is mandatory to override abstract methods of the superclass in the subclass.
+The subclass of abstract class in java must implement all the abstract methods unless the subclass is also an abstract class.
+Java Abstract class can implement interfaces without even providing the implementation of interface methods.
+ 
+READING WRITING TO DISK FILE 
+FileWriter when writes is less.
+BufferedWriter wraps another writer (FileWriter)!
+ 
 
 
