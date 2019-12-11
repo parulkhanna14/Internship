@@ -486,5 +486,99 @@ READING WRITING TO DISK FILE
 FileWriter when writes is less.
 BufferedWriter wraps another writer (FileWriter)!
  
+Simple Logging Facade for JAVA(SLF4J)
+→ https://www.youtube.com/watch?v=SWHYrCXIL38
+The need for logging the errors and messages!
+Store those logs to a file for future reference!
+Java.util.logging package with Logger which has a static method called getLogger().  (built in library since jdk 1.4)
+It’s a facade that is not doing the actual work but is connecting to other log libraries that do the actual work (like log4j)!
+SLF4J is like an API that only has an interface implementation so the actual work is still not done by SLF4J but some other connected logging library!
+We need to have a jar of slf4j that is compatible with whatever log library we will be using and that jar again calls the library’s jar file!
+Logback and log4j2 are the successors of log4J library!
+ 
+→ BasicConfigurator.configure () creates a console appender and configures the codes for simple logging.
+→ if we want to direct the logs to another file we need to have appenders!
+→ We can log into databases,files,console,Unix Syslog.
+→ log4j has three main components:
+loggers: Responsible for capturing logging information.
+appenders: Responsible for publishing logging information to various preferred destinations.
+layouts: Responsible for formatting logging information in different styles.
+→ in properties if we specify WARN then only warnings and logs that have higher levels will be recorded not the info and debug as they have lower levels! As ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF.
+To write your logging information into multiple files, you would have to use org.apache.log4j.RollingFileAppender class
+To write your logging information into files on a daily basis, you would have to use org.apache.log4j.DailyRollingFileAppender class which extends the FileAppender class and inherits all its properties.
+ 
+APACHE VELOCITY
+It’s main purpose is to divide the static content and the design part of your code!
+It’s a template engine which combines data and template.
+You give variables and references and html page would be created!
+Used as View component in MVC framework!
+It can generate XML,SQL, and other text formatted files but mostly for dynamic web pages.
+Initialize the velocity engine
+Read the template
+Put the data model in context object
+Merge the template with context data and render the view
+The primary job of the Velocity Engine is to generate content based on a template.
+Velocity is a useful tool for rendering the dynamic web pages.
+Any application working with velocity requires 2 parts:
+A velocity template “xyz.vm”
+A java file “abc.java”
+ 
+TESTING 
+Java has some testing frameworks like JUnit, TestNG.
+TestNG (Next Generation)
+→ It’s an open source testing framework used for automation testing suite.
+→  It can generates logs and html files
+→ you can group the test cases unlike JUnit.
+→ you can control the test cases like the pre-tests, etc.
+→ TestNG supports three additional levels such as @Before/After suite, @Before/AfterTest, and Before/AfterGroup i.e. multiple before and after annotations!
+→ Dependent methods are there which works for the same class or inherited class in which even if the test fails you still have the decision power of executing the dependent test method or not.
+→ We can create an xml file as well that will group the tests. Make suites.
+→We can disable the test cases (either in xml file or @test annotation)
+→  @test (enabled=false)! 
+→ in xml file we can use include and exclude!
+→ Groups are specified in the testng.xml file with <groups> tag. Groups can be specified either in the <suite> tag or <test> tag. If the <groups> tag is specified inside the <suite> tag, then it is applied to all the <test> tags of XML file. If the <groups> tag is specified within a particular <test> folder, then it is applied to that particular <test> tag only.
+→ a test can belong to multiple groups.
+@Test(groups= {"Group A","Group B"})  
+→ @parameters have <name value> pair in xml file.
+→ Listeners are implemented by the ITestListener interface. 
+ 
+ 
 
+ 
+ 
+ 
+ 
+ 
+JMockit
+http://abhinandanmk.blogspot.com/2012/06/jmockit-tutoriallearn-it-today-with.html
+ 
+https://jmockit.github.io/tutorial/Introduction.html
+It’s a library/mock framework that mocks the methods that are called from within a function and we are not testing those methods so we just make mocks for them, mocks object.
+It's used when we don’t want to call any third party class/entity to be executed just for the sake of testing! (Database wala example)
+So basically mocking is, as the name says, redefining the behaviour of an object or method to imitate or modify the original implementation to accommodate our test cases.
+JMockit Expectations class is used for mocking the results of a method by specifying what is expected when a particular method is invoked!
+Setting of expectations is called “record phase”
+When the actual call happens that is called “reply phase”
+@Mocked annotation is used for object/method to be mocked.
+we have the mocking API (also known as the "Expectations" API), intended for tests which use mocked dependencies. Finally, there is a small faking API (aka the "Mockups" API), which can be used for the creation and application of fake implementations that avoid the full cost of external components.
+ 
+Base64
+It’s also called Privacy Enhanced Electronic Mail (PEM).
+Base64 encoding converts binary data into text format.
+Primarily used in email encryption process.
+Three types of encoding and decoding classes:: 
+Basic encoding and decoding
+It uses the Base64 alphabet specified by Java in RFC 4648 and RFC 2045 for encoding and decoding operations. The encoder does not add any line separator character. The decoder rejects data that contains characters outside the base64 alphabet.
+URL and filename encoding and decoding
+It uses the Base64 alphabet specified by Java in RFC 4648 for encoding and decoding operations. The encoder does not add any line separator character. The decoder rejects data that contains characters outside the base64 alphabet.
+MIME
+It uses the Base64 alphabet as specified in RFC 2045 for encoding and decoding operations. The encoded output must be represented in lines of no more than 76 characters each and uses a carriage return '\r' followed immediately by a linefeed '\n' as the line separator. No line separator is added to the end of the encoded output. All line separators or other characters not found in the base64 alphabet table are ignored in decoding operation.
+https://gist.github.com/utsengar/1276960/9e99b409e8d57c624e2a16793faa9c16e3745db2
+ 
+TOMCAT
+→ to start tomcat
+$ /var/app/kritter/adserving/apache-tomcat-7.0.47/bin$ sudo ./startup.sh
+ 
+ 
+ 
 
