@@ -454,6 +454,16 @@ TRANSACTION
 It’s like a group of sql queries.
 Have commit() and rollback() methods!
  
+BATCH PROCESSING
+Groups related sql queries and submit them at once to the database thus decreasing the communication call.
+The following method calls determines if jdbc driver supports batch mode or not!
+DatabaseMetaData dm=con.getMetaData();
+System.out.println(dm.supportsBatchUpdates());
+addbatch() → to add statements to the batch to be executed.
+executebatch() → starts the execution of a batch.returns an array of integers, and each element of the array represents the update count for the respective update statement.
+clearbatch() removes all the statements.
+ 
+ 
 SINGLETON CLASS 
 A design pattern.
 Means define a class with only one instance which can be globally accessed.
@@ -495,6 +505,9 @@ It’s a facade that is not doing the actual work but is connecting to other log
 SLF4J is like an API that only has an interface implementation so the actual work is still not done by SLF4J but some other connected logging library!
 We need to have a jar of slf4j that is compatible with whatever log library we will be using and that jar again calls the library’s jar file!
 Logback and log4j2 are the successors of log4J library!
+ 
+ROLLINGFILEAPPENDER
+RollingFileAppender extends FileAppender to backup the log files when they reach a certain size.
  
 → BasicConfigurator.configure () creates a console appender and configures the codes for simple logging.
 → if we want to direct the logs to another file we need to have appenders!
@@ -578,7 +591,31 @@ https://gist.github.com/utsengar/1276960/9e99b409e8d57c624e2a16793faa9c16e3745db
 TOMCAT
 → to start tomcat
 $ /var/app/kritter/adserving/apache-tomcat-7.0.47/bin$ sudo ./startup.sh
+JAVA SERVLETS(Server Component)
+→ It’s a way to construct dynamic web pages using java.
+→ servlets are the Java programs that runs on the Java-enabled web server or application server.
+→ Its the helper application which helps in building the dynamic web pages!
+→ It resides on server performs the action there and sends the result back to the client.
+→ We can implement servlet interface or extend  genericservlet interface or extend httpservlet class.
+→ service() method is implemented with 2 objects:: 
+Request object (from client to server)
+Response object (from server to client)
+→ For mapping to the servlet we have “web.xml” file aka deployment descriptor that maps the request. It contains info like for which request which servlet to be called!
+→ all this is taken care by tomcat i.e. the web container!!
+→ Instead of xml files for mapping we now have annotations that does the job!
+We have javax.servlet and javax.servlet.http packages that have interfaces and classes for servlet api. (http wala has the protocol thats the only difference)
+Lifecycle of servlet interface: 
+Initialize the servlet (init)
+Service the servlet (service)
+Destroy the servlet (destroy)
  
+Webapp archetype command
+$ mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4
+(the above is in interactive mode)
+ 
+$ mvn archetype:generate -DgroupId=com.company.emailsending -DartifactId=email -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+ 
+Web applications are deployed under the $CATALINA_HOME\webapps directory.
  
  
 
