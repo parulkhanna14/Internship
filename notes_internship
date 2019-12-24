@@ -417,6 +417,8 @@ INTERFACE (total abstraction)
 If a class implements an interface and does not provide method bodies for all functions specified in the interface, then the class must be declared abstract. That means all the methods in an interface are declared with an empty body and are public and all fields are public, static and final by default.
 Interfaces are used to implement abstraction. So the question arises why use interfaces when we have abstract classes?
 The reason is, abstract classes may contain non-final variables, whereas variables in interface are final, public and static.
+JAVA STATIC METHODS
+→ Static Method in Java belongs to the class and not its instances. A static method can access only static variables of class and invoke only static methods of the class.
 JAVA ENUM
 Enums are used when we know all possible values at compile time, such as choices on a menu, rounding modes, command line flags, etc. It is not necessary that the set of constants in an enum type stay fixed for all time.
 In Java (from 1.5), enums are represented using enum data type. Java enums are more powerful than C/C++ enums . In Java, we can also add variables, methods and constructors to it. The main objective of enum is to define our own data types(Enumerated Data Types).
@@ -617,5 +619,108 @@ $ mvn archetype:generate -DgroupId=com.company.emailsending -DartifactId=email -
  
 Web applications are deployed under the $CATALINA_HOME\webapps directory.
  
+PLAY FRAMEWORK
+Every play project is SBT project (SBT is a build tool for scala and java projects like maven,ant).
+Open source web application framework (i.e. it supports the web development and helps in building and deploying web apps on the web) which follows MVC.
+Written in scala but applicable to other languages which converts to jvm bytecode.
+It follows convention over configuration i.e. it decreases the decisions coder has to make without compromising the flexibility. (eg you have a class called “sales” then you’ll have a database table called “sales” only unless you code otherwise).
+It displays errors in the browser.
+The Play Framework drastically improves developer productivity without sacrificing scalability.
+Offers Rapid development.
+By default RESTful (Representational state transfer).
+Play compiles and refreshes the modifications you make to your source files automatically, so you can easily work using a simple text editor.
  
+INSTALLATION
+https://www.playframework.com/documentation/2.2.3/Installing
+Download the zip file.
+Unzip it
+Add the path to the .bashrc and export it then source it.
+Execute the command : $ play help (should work!)
+ → Let’s first look at what happens at runtime. When you enter http://localhost:9000/ in your browser:
+The browser requests the root / URI from the HTTP server using the GET method.
+The Play internal HTTP Server receives the request.
+Play resolves the request using the routes file, which maps URIs to controller action methods.
+The action method renders the index page, using Twirl templates.
+The HTTP server returns the response as an HTML page.
+
+ 
+Go to the project folder and in play console type “$ play” “$ run” and open localhost:9000.
+ 
+NGINX (Engine X)
+High performance web server.
+For static pages.
+Developed to tackle 10k problem i.e. to serve 10k concurrent connections.
+Can be stand alone web server or stand in front of other web server as a reverse proxy.
+It can handle SSL,HTTPs and then pass normal http request to other servers on the back or any other port. Then the other web servers only handles normal http requests.
+By default nginx creates error logs and access logs. And can be found in /var/log/nginx.
+ACCESS LOG → records all the visitors coming to your site like their IP address, browser details, etc.. We can analyze the traffic coming to the site.
+We can enable logs. Like to enable access log in http/server section, we need to specify the file name (*) and log format which if not specified will be default.
+ngxtop is a real time metric for nginx. It reads access logs and displays useful nginx server. It gives info as such what is happening in nginx server in real time.
+It tries to determine the default location and format of access log file.
+Http request status → that tells the results of the client’s request. (divided into 5 categories )
+1XX → informational i.e. tells protocol information.
+2XX → Success i.e client’s request was accepted successfully. (200 OK)
+3XX → Redirection i.e. client must take additional action to complete the request.
+4XX → Client error i.e. error from client’s side. (404)
+5XX → server error i.e. error from server’s side.
+To see ngxtop info
+ngxtop -l /var/log/nginx/access.log --no-follow
+--no-follow flag is to tell the previous log info as well i.e. it reads the existing logs as well.
+ngxtop top remote_addr --no-follow
+This tells the IP addresses of the clients
+CONDITIONAL LOGGING 
+map $status $loggable {
+    ~^[23]  0;
+    default 1;
+}
+access_log /path/to/access.log combined if=$loggable; (it excludes 2XX and 3XX status codes).
+ 
+ 
+STARTING/RESTARTING NGINX
+→ Go to /etc/init.d and then type “service nginx start” go to localhost:80 to check! 
+→ systemctl start nginx
+→ /etc/nginx has the nginx.conf file i.e. the configuration file. 
+ 	→ service nginx restart (after making changes to the configuration file)
+nginx has one master process and several worker processes.
+Master process read and evaluate configurations and maintain worker processes.
+Worker processes do the actual processing of requests.
+Once nginx is started, it can be controlled using executables with -s parameter.
+To add a virtual host, navigate to the /etc/nginx/sites-available folder. This is the default location for NGINX server blocks.
+ 
+CHANGING PERMISSIONS OF A DIRECTORY
+sudo chown -R $USER:$USER /var/www
+ 
+APACHE PIG 
+High level programming language used to analyze large data sets.
+Result of development at yahoo.
+Pig is an abstraction over hadoop to build the gap between map and reduce jobs.
+Pig allows people to focus more on analyzing rather than writing map/reduce programs.
+Just like a pig who eats anything, this pig can also analyze any kind of data.
+Pig architecture consists of 2 things:
+Pig latin which is a language.
+A runtime environment for running PigLatin programs
+PigLatin programs consists of a series of operations and transformations that takes the input and produces output.
+Pig is a stiffened language that uses keywords like “Join, group and filter”.
+ 
+
+Pig has 2 execution modes:
+Local mode → runs on single jvm and local file system. (pig-x local)
+Map reduce mode → queries written in PigLatin are translated into mapreduce jobs and run on a hadoop cluster.(pig-x mapreduce)
+Any task achieved using pig can also be achieved using java in hadoop.
+PigLatin accepts relation as input and gives relation as output.
+It can scan multiple lines.
+Each line must end with semi colon.
+() for tuple datatype i..e ordered set of fields
+[] for map datatype i.e. set of key-value pair
+{} for bag datatype i.e. set of tuples.
+Lines = LOAD ‘~/Desktop/data.txt’ AS (line: charArray);   // lines is a bag
+ 
+ 
+BLOGS READ / QUORA
+QUORA
+How will ad tech reshape the advertising industry? (Rohan Rai)
+
+BLOG
+AdTech: Through The Journey of Mr. Romeo (Suprabh Sanket)
+
 
