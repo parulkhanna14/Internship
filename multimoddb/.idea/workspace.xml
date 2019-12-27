@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3b8c7d44-001d-408b-9269-2bd1a3cc7c30" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Sets/.idea/Sets.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Sets/.idea/Sets.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sets/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bank/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Sets/src/main/java/com/company1/SetImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/singleton/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/singleton/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/singleton/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/singleton/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/singleton/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileoperations/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileoperations/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../inheritance/src/main/java/com/company1/Currcal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../inheritance/src/main/java/com/company1/Currcal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../inheritance/src/main/java/com/company1/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/../inheritance/src/main/java/com/company1/Currency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/database/src/main/java/com/company2/SingletonDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../singleton/database/src/main/java/com/company2/SingletonDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/database/target/classes/com/company2/SingletonDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../singleton/database/target/classes/com/company2/SingletonDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/demo/src/main/java/com/company1/SingletonMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../singleton/demo/src/main/java/com/company1/SingletonMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/demo/target/classes/com/company1/SingletonMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../singleton/demo/target/classes/com/company1/SingletonMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testng/src/main/java/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/../testng/src/main/java/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testng/src/main/java/DepartmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../testng/src/main/java/DepartmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testng/src/main/java/SampleClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../testng/src/main/java/SampleClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testng/src/main/resources/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/../testng/src/main/resources/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testng/src/test/java/PersonConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../testng/src/test/java/PersonConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testng/src/test/java/TestSampleClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../testng/src/test/java/TestSampleClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testng/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../testng/testng.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UYjeGuU4Cwtytk16RsjxhrZ27X" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../velocityimplementation" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Dbclass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.dbclass.Dbclass" />
+      <module name="multimoddb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.dbclass.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Dbclass" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b8c7d44-001d-408b-9269-2bd1a3cc7c30" name="Default Changelist" comment="" />
+      <created>1575540516310</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575540516310</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="734" y="269" width="489" height="567" key="DetectedRootsChooserDialog" timestamp="1575547161152">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="734" y="269" width="489" height="567" key="DetectedRootsChooserDialog/59.27.1861.1053@59.27.1861.1053" timestamp="1575547161152" />
+    <state x="767" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1576126965926">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="767" y="310" width="424" height="484" key="FileChooserDialogImpl/59.27.1861.1053@59.27.1861.1053" timestamp="1576126965926" />
+    <state width="1815" height="278" key="GridCell.Tab.0.bottom" timestamp="1575549105161">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state width="1815" height="278" key="GridCell.Tab.0.bottom/59.27.1861.1053@59.27.1861.1053" timestamp="1575549105161" />
+    <state width="1815" height="278" key="GridCell.Tab.0.center" timestamp="1575549105159">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state width="1815" height="278" key="GridCell.Tab.0.center/59.27.1861.1053@59.27.1861.1053" timestamp="1575549105159" />
+    <state width="1815" height="278" key="GridCell.Tab.0.left" timestamp="1575549105158">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state width="1815" height="278" key="GridCell.Tab.0.left/59.27.1861.1053@59.27.1861.1053" timestamp="1575549105158" />
+    <state width="1815" height="278" key="GridCell.Tab.0.right" timestamp="1575549105160">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state width="1815" height="278" key="GridCell.Tab.0.right/59.27.1861.1053@59.27.1861.1053" timestamp="1575549105160" />
+    <state x="472" y="130" width="1024" height="845" key="SettingsEditor" timestamp="1575547167313">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="472" y="130" width="1024" height="845" key="SettingsEditor/59.27.1861.1053@59.27.1861.1053" timestamp="1575547167313" />
+  </component>
+</project>

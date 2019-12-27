@@ -2,15 +2,9 @@ package com.company2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class SingletonDemo {
-    //Step 1
-    // create a SingletonDemo class.
     //static member holds only one instance of the JDBCSingleton class.
 
     private static SingletonDemo jdbc;                      //single instance
@@ -18,7 +12,7 @@ public class SingletonDemo {
     //SingletonDemo prevents the instantiation from any other class.
     private SingletonDemo() {  }
 
-    //Now we are providing gloabal point of access.
+    //Now we are providing global point of access.
     public static SingletonDemo getInstance() {
         if (jdbc==null)
         {
@@ -30,10 +24,11 @@ public class SingletonDemo {
     // to get the connection from methods like insert, view etc.
     private static Connection getConnection()throws ClassNotFoundException, SQLException
     {
-
         Connection con=null;
         Class.forName("com.mysql.jdbc.Driver");
         con= DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "parul", "Kritter12!");
+        /*DatabaseMetaData dm=con.getMetaData();
+        System.out.println(dm.supportsBatchUpdates());*/
         return con;
 
     }
@@ -116,13 +111,13 @@ public class SingletonDemo {
     }
 
     // to delete the data from the database
-    public int delete(int userid) throws SQLException{
+    public int delete(String name) throws SQLException{
         Connection c=null;
         PreparedStatement ps=null;
         int recordCounter=0;
         try {
             c=this.getConnection();
-            ps=c.prepareStatement(" delete from userdata where uid='"+userid+"' ");
+            ps=c.prepareStatement(" delete from userdata where uname='"+name+"' ");
             recordCounter=ps.executeUpdate();
         } catch (Exception e) { e.printStackTrace(); }
         finally{

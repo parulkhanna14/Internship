@@ -2,42 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b11679f-23d6-491e-9389-05411f971030" name="Default Changelist" comment="multi module concept maven">
-      <change afterPath="$PROJECT_DIR$/../multimoddb/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../multimoddb/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../multimoddb/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../multimoddb/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../multimoddb/multimoddb.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../multimoddb/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../multimoddb/src/main/java/com/company/dbclass/Dbclass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../trial/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../trial/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../trial/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../trial/src/com/company1/Main1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankInterface/target/BankInterface-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankInterface/target/classes/com/company1/bankint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankInterface/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankInterface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankInterface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankInterface/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmodule/Mainmodule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Mainmodule/Mainmodule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmodule/target/Mainmodule-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmodule/target/classes/com/company3/Mainclass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmodule/target/lib/BankInterface-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmodule/target/lib/banks-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmodule/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmodule/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmodule/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mainmodule/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/banks/banks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/banks/banks.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banks/target/banks-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/banks/target/classes/company2/Bankroi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/banks/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/banks/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/banks/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/banks/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../currency_program/.idea/my_currency_calculator.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../file1" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testng/src/main/java/SampleClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testng/src/main/resources/logs.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testng/src/test/java/TestSampleClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sets/src/main/java/com/company1/SetImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/singleton/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/singleton/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/singleton/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/singleton/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/singleton/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../enum/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../enum/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fileoperations/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fileoperations/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../inheritance/src/main/java/com/company1/Currcal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../inheritance/src/main/java/com/company1/Currcal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../inheritance/src/main/java/com/company1/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/../inheritance/src/main/java/com/company1/Currency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/database/src/main/java/com/company2/SingletonDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../singleton/database/src/main/java/com/company2/SingletonDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/database/target/classes/com/company2/SingletonDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../singleton/database/target/classes/com/company2/SingletonDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/demo/src/main/java/com/company1/SingletonMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../singleton/demo/src/main/java/com/company1/SingletonMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/demo/target/classes/com/company1/SingletonMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../singleton/demo/target/classes/com/company1/SingletonMain.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +48,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../my_currency_calculator" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../projects/bank" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -154,10 +136,10 @@
       <screen x="59" y="27" width="1861" height="1053" />
     </state>
     <state x="563" y="149" width="843" height="807" key="CommitChangelistDialog2/59.27.1861.1053@59.27.1861.1053" timestamp="1575531684872" />
-    <state x="767" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575609268730">
+    <state x="767" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1576044010155">
       <screen x="59" y="27" width="1861" height="1053" />
     </state>
-    <state x="767" y="310" width="424" height="484" key="FileChooserDialogImpl/59.27.1861.1053@59.27.1861.1053" timestamp="1575609268730" />
+    <state x="767" y="310" width="424" height="484" key="FileChooserDialogImpl/59.27.1861.1053@59.27.1861.1053" timestamp="1576044010155" />
     <state width="1815" height="278" key="GridCell.Tab.0.bottom" timestamp="1575549111082">
       <screen x="59" y="27" width="1861" height="1053" />
     </state>

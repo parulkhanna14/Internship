@@ -7,6 +7,8 @@ import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.util.Timer;
+import java.util.TimerTask;
 //import java.util.Base64;
 
 enum Seasons implements enuminterface{
@@ -25,54 +27,30 @@ enum Seasons implements enuminterface{
     }
 }
 
-public class trialenum {
+public class trialenum extends TimerTask {
+    public static trialenum obj;
     static Logger log = Logger.getLogger(trialenum.class);
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
+        obj=new trialenum();
+        Timer timer=new Timer();
+        TimerTask timerTask=new trialenum();
+        timer.schedule(timerTask,1000,3000);
+        //BasicConfigurator.configure();
+        synchronized (obj)
+        {
+            obj.wait();
+        }
+        timerTask.cancel();
         String log4jConfPath = "/home/sciera/gitprojects/Internship/enum/src/log4j.properties";
         PropertyConfigurator.configure(log4jConfPath);
-        //BasicConfigurator.configure();
-        for(Seasons s:Seasons.values())
-            System.out.println(s);
-        Seasons s1=Seasons.FALL;
-        int l=s1.getlevel("WINTER");
-        System.out.println("Level of WINTER: "+l);
-        System.out.println("ORDER OF FALL:: "+Seasons.valueOf("FALL").ordinal());
         log.info("Enum code running!");
         log.debug("This is debug log!!");
         log.warn("Warning!");
-        //Base64.encodeBase64();
-        /*File originalFile = new File("/home/sciera/gitprojects/Internship/enum/src/logging.log");
-        String encodedBase64 = null;
-        try {
-            FileInputStream fileInputStreamReader = new FileInputStream(originalFile);
-            byte[] bytes = new byte[(int)originalFile.length()];
-            fileInputStreamReader.read(bytes);
-            encodedBase64 = new String(Base64.encodeBase64(bytes));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
         String s=encodeFileToBase64Binary("/home/sciera/gitprojects/Internship/enum/src/logging.log");
         System.out.println(s);
+        timer.cancel();
     }
-   /* private static String encodeFileToBase64Binary(File file){
-        String encodedfile = null;
-        try {
-            FileInputStream fileInputStreamReader = new FileInputStream(file);
-            byte[] bytes = new byte[(int)file.length()];
-            fileInputStreamReader.read(bytes);
-            encodedfile = Base64.encodeBase64(bytes).toString();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch <span id="IL_AD6" class="IL_AD">block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
 
-        return encodedfile;
-    }*/
 
     private static String encodeFileToBase64Binary(String fileName)
             throws IOException {
@@ -109,4 +87,15 @@ public class trialenum {
         return bytes;
     }
 
+    public void run() {
+        for(Seasons s:Seasons.values())
+            System.out.println(s);
+        Seasons s1=Seasons.FALL;
+        int l=s1.getlevel("WINTER");
+        System.out.println("Level of WINTER: "+l);
+        System.out.println("ORDER OF FALL:: "+Seasons.valueOf("FALL").ordinal());
+        synchronized (trialenum.obj){
+            trialenum.obj.notify();
+        }
+    }
 }

@@ -66,11 +66,12 @@ public class SingletonMain {
                 }//End of case 2
                 break;
                 case 3:{
-                    System.out.print("Enter the userid,  you want to delete: ");
-                    int userid=Integer.parseInt(br.readLine());
+                    System.out.print("Enter the username,  you want to delete: ");
+                    //int userid=Integer.parseInt(br.readLine());
+                    String name=br.readLine();
 
                     try {
-                        int i= jdbc.delete(userid);
+                        int i= jdbc.delete(name);
                         if (i>0) {
                             System.out.println((count++) + " Data has been deleted successfully");
                         }else{
