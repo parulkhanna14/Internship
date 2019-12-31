@@ -1,0 +1,726 @@
+$ sudo apt-get install make
+E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+
+For the above error, we need to check what other process is using APT package and then kill it.
+
+:::: ps aux | grep -i apt // finds the id of the process using APT
+
+(https://itsfoss.com/could-not-get-lock-error/)
+
+
+TOMCAT INSTALLATION ************
+https://tecadmin.net/install-tomcat-7-on-ubuntu/
+
+
+JDK,JVM,JRE***************
+https://www.javaworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html
+
+NGINX
+$ service nginx start (asks for pwd).
+
+$ service nginx stop
+
+RSYNC 
+Rsync file2 file3  //rsync both files on the local machine
+
+DELETING LINES IN VIM
+
+
+GIT
+→ git init to make new public repo
+→ git config --list (will show you the basic info)
+→ $ git rm --cached my-file.ts
+ (to remove a file from staging area)
+→ git reset file5 (opp of add and same as above command)
+→ git commit -a[all] -m “msg” (at the same time)
+					
+UNDO THE COMMIT
+
+→ Git reset --soft HEAD^ (undo the commit and moved before head)
+(waps staging area m aata h) Undo the last commit in the current branch and move HEAD back by one commit."
+→ git add remaining_file.txt
+→ git commit --amend “remaining file”
+→ echo "# newrepo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/parulkhanna14/newrepo.git
+git push -u origin master
+→ -u because next time just write “git push”
+→ git branch (lists all branches)
+→  git branch user-profile (makes the branch but doesn’t change it)
+→ git checkout user-profile
+Or simply git -b checkout user-profile
+→ merge 
+Merges any sub branch to the main branch
+Go to main branch and git merge user-profile
+→ git branch -d user-profile (deletes a branch)
+→ git reset --hard (undo the commit as well as deletes the modifications till the last commit)
+
+→ git revert HEAD (requires a reference here HEAD for the latest commit)
+→ reset only works one step back at a time
+
+$git revert HEAD~3
+Revert the changes specified by the fourth last commit in HEAD and create a new commit with the reverted changes.
+$git revert -n master~5..master~2
+Revert the changes done by commits from the fifth last commit in master (included) to the third last commit in master (included), but do not create any commit with the reverted changes. The revert only modifies the working tree and the index.
+→ git merge parulkhanna
+You make changes to the file in the working directory and then you add those files in the staging area. From that area only files can be committed to the git repository.
+
+General work flow: 
+Add
+commit
+Pull
+Push
+> First cloned the repository in the local system using the “git clone URL”
+> Changed to the new directory
+> created a branch using “git checkout -b parulkhanna(branch name)” 
+	-b flag means creating a new branch 
+	By default a branch is made on another branch (wherever you were working)
+	In this case new branch was made based on the master branch itself
+	Else you could have given branch name followed by existing branch name 
+
+
+MERGE
+git fetch (so that the files should be updated)
+git  branch -va (gives detailed info which repo is behind any updation)
+
+DELETING A BRANCH
+git  branch -d <branch name>
+https://www.git-tower.com/learn/git/faq/git-merge-branch
+https://www.atlassian.com/git/tutorials/using-branches/git-merge
+ 
+RESET ::
+HARDRESET/SOFTRESET
+→ git stash push -m “msg”
+
+Scenario: You have done a git reset --hard for some unwanted changes, but then you realized that you actually needed them.
+Solution: git reflog comes to your rescue! It is an amazing command for recovering project history and it can recover almost anything.
+
+
+SQL
+
+Multiple inserts
+Insert into tablename values (),(),();
+
+LIKE 
+Select * from first where gender like “%male%”;
+%- one or more occurences
+_ one occurence
+
+TOP/LIMIT
+select * from first where genger="male" limit 3;
+
+DROPPING A NOT NULL CONSTRAINT
+alter table second change name name varchar(20);
+
+INSERT CURRENT DATE TIME:
+curdate() → but it gives only the date and time as 00:00:00
+now() → gives proper date and time of the system
+
+UNION clause
+Unions two select statements (must have same columns and in same order as well) but eliminates the duplicate rows
+
+UNION ALL
+Includes the duplicate rows as well.
+
+// INTERSECT/EXCEPT
+
+// INTERSECT → which is there in both select statements i.e. the common ones.
+
+// EXCEPT → which is there in the first select statement but not in the second one.
+
+JOIN
+Select * from cust,orders where id=custid;
+
+→ Cross join :  select * from  cust cross join orders; 
+ Gives all the combinations from rows from first table with each row in table 2. I.e. m*n combinations/rows.
+
+→ Inner join :  intersection
+select id,name,oid from cust,orders where cust.id=orders.custid;
+OR
+select id,name,oid from cust inner join orders on cust.id=orders.custid;
+returns rows that satisfy the conditions in both the tables.
+ → Outer joins: 
+left/right joins
+Select id,name,oid from cust LEFT JOIN orders on id=custid;
+
+ON and USING constraints
+
+Same use but USING can be used only on the same column name in both tables.
+
+Subqueries: 
+
+→ Must be enclosed in paranthesis.
+→ if inner query returns null then outer query will not return anything if compared in the where clause.
+
+JOINING MORE THAN 2 TABLES
+$ select empname from employee inner join empdept on employee.dept=empdept.deptid inner join empsalary USING (empid) where ispermanent='yes' and deptname="HR";
+
+
+
+
+
+
+Enabling and disabling keys
+
+ALTER INDEX employees_pk ON employees
+DISABLE;
+
+ALTER INDEX employees_pk ON employees
+REBUILD;
+
+Adding primary key
+$ alter table empdept add PRIMARY KEY (depthead);
+
+
+Adding foreign key
+$ alter table employee add FOREIGN KEY(dept) REFERENCES empdept(deptid);
+
+Drop keys
+$ alter table employee drop FOREIGN KEY employee_ibfk_1 , drop KEY dept;
+
+$ create index idx on <table name> (columns);
+$show indexes from <tablename>;
+
+$select * from cust use index(idx) where country=”ireland”;
+
+$alter table cust drop PRIMARY KEY;
+$alter table cust add PRIMARY KEY(id);
+
+$alter table employee drop FOREIGN KEY <fk name>;
+$alter table employee add FOREIGN KEY (dept) REFERENCES empdept(deptid);
+
+$alter table employee add unique (empname);
+$alter table employee drop index empname;
+
+$set FOREIGN_KEY_CHECK=0;
+$set FOREIGN_KEY_CHECK=1;
+
+NORMALIZATION
+→ 1NF
+Every column should have single value
+Each record must be unique.
+→ 2NF
+Must be 1NF
+Single column pk
+→ 3NF
+Must be 2NF
+No transitive dependencies (all non-key attributes depends on primary key only in all tables)
+____________________________________________________________________________________________________________________________________________
+
+MAVEN
+
+Software management and comprehension tool based on POM (Project Object Model)
+General build system job include: 
+Compile source code
+Copy resource
+Compile and run tests
+Package project
+Deploy project 
+Cleanup 
+Maven manages :
+→ builds
+→ dependencies + versions
+→ Documentation
+
+Maven UIDs (Unique Identifiers)
+→ group id
+→ artifact id
+→ version
+
+We can refer to any project using these UIDs and even some one can refer to us using the same.
+
+We can add dependencies using these UIDs
+
+What’s POM?
+It’s an XML file containing the project’s information and configuration details used by maven to build the project.
+(describes a project, group id,artifact id, version, dependencies, plugins,etc)  
+In a POM file (general structure)
+<project>
+	<groupid>	{apne project ka}
+	<artifact id>
+	<version>
+	<packaging> (jar,war,etc)
+<dependencies>
+	<dependency>	</dependency> . . . . .
+</dependencies>
+<build>				//to extend the build process
+	<plugins>
+		<plugin>	</plugin> . . . . . .
+	</plugins>
+</build>
+</project>
+
+Archetype is nothing but a template.
+It’s a plugin which tell maven to create a project of specified template (like quickstart).
+
+******************Maven error******************
+****************************************************************************************************
+→ plugin error
+Go to ~/.bashrc file 
+And write the following path at the end
+
+export MAVEN_OPTS=-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2
+
+And then source ~/.bashrc
+
+→ no main attribute error
+no main manifest attribute, in /home/sciera/git projects/Internship/consumer Banking/target/consumer Banking-1.0-SNAPSHOT.jar
+
+Soln: 
+Add the following plugin
+<plugin> 
+
+                <!-- Building an executable jar -->
+
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                  <archive>
+                    <manifest>
+
+                    <!-- give full qualified name of your main class-->
+                      <mainClass>com.javahungry.Demo</mainClass>
+
+                    </manifest>
+                  </archive>
+                </configuration>
+    </plugin>
+****************************************************************************************************
+
+Plugins are included in POM file 
+→ each plugin can have multiple goals.
+→ we can specify the phase from where plugin should start it’s execution.
+→ maven uses “archetype” plugin to create a project!
+
+Package -- compiles and packages the files (in jar if jar is specified in the POM file) and places the jar file in the target directory.
+Install -- compiles and packages the code and place it in the local repository for other projects to use it.
+→ EXTERNAL DEPENDENCIES
+Dependencies can be added in the pom file with the UIDs and system path specified!
+(scope as system)
+
+$ mvn site (creates the documentation in the target folder).
+
+
+Dependencies vs plugins
+we can say, plugin is a Jar file which executes the task, and dependency is a Jar which provides the class files to execute the task
+
+→ Maven creates the documentation using a documentation-processing engine called Doxia
+
+→ mvn clean package -U (Updates the versions i.e. SNAPSHOT)
+
+→ Multi-module projects
+
+Common dependencies can be placed in a parent pom file. (Transitive Dependency Mechanism)
+ -P specifies which profile Maven is to run under. Projects can define multiple profiles which may pull in different dependencies, so this is required if you have a project that can do that.
+
+-D define a system property
+
+
+run.sh  script in the main module
+#!/bin/sh
+
+CLASSPATH=
+
+for f in target/*.jar; do
+CLASSPATH=${CLASSPATH}:$f;
+done
+
+for f in target/lib/*.jar; do
+CLASSPATH=${CLASSPATH}:$f;
+done
+
+MAINCLASS=[yha accordingly likh ly]
+
+exec java -cp "$CLASSPATH" $MAINCLASS
+
+With this plugin
+<plugin>
+<artifactId>maven-dependency-plugin</artifactId>
+<executions>
+<execution>
+<phase>install</phase>
+<goals>
+<goal>copy-dependencies</goal>
+</goals>
+<configuration>
+<outputDirectory>
+${project.build.directory}/lib
+</outputDirectory>
+</configuration>
+</execution>
+</executions>
+</plugin>
+
+mvn flags::
+-am → also make i.e. if some project is specified then also build the other required modules (for dependencies issues).
+-pl → builds the specified project not all of them.
+-P → activates the specified profiles
+PROFILES
+Profiles are alternative set of configurations thats sets or overrides the default values. We can customize the build configuration using profile. Then we can use flag to tell maven to execute goals with specific profile.
+<profiles> (1)			//overrides the default maven’s compile configuration
+            <profile>
+                <id>production</id> (2)
+                    <build> (3)
+                            <plugins>
+                                <plugin>
+                                    <groupId>org.apache.maven.plugins</groupId>
+                                    <artifactId>maven-compiler-plugin</artifactId>
+                                    <configuration>
+                                        <debug>false</debug> (4)
+                                            <optimize>true</optimize>
+                                    </configuration>
+                                </plugin>
+                            </plugins>
+                    </build>
+            </profile>
+    </profiles>
+→ It overrides the default settings thus it is written in the end of the pom file.
+→ it can have any tag/element that a <project> tag can have.
+→ it is executed using -P<profile id> flag
+	Eg	mvn install -Pproduction
+
+→ To skip test at command line
+ mvn package -Dmaven.test.skip=true
+
+
+MAVEN_OPTS
+MAVEN_OPTS is used to configure a bit of extra memory for Maven as it will run an embedded Apache Tomcat application server with Alfresco Repo, Share, and Solr web applications deployed. It also sets the Spring Loaded Java Agent so it is available during Rapid Application Development (RAD).
+→ This variable contains parameters used to start up the JVM running Maven and can be used to supply additional options to globally to Maven. E.g. JVM memory settings could be defined with the value -Xms256m -Xmx512m.
+
+→ Open your mvn.sh file and add the following line:
+export MAVEN_OPTS=-Xmx512m
+this will allow to specify java heap space based on your project needs.
+
+Read more: https://javarevisited.blogspot.com/2011/08/increase-heap-size-maven-ant.html#ixzz67E1D95eD
+
+JAVA_OPTS
+JAVA_OPTS is the standard environment variable that some servers and other java apps append to the call that executes the java command.
+For example in tomcat if you define JAVA_OPTS='-Xmx1024m', the startup script will execute java org.apache.tomcat.Servert -Xmx1024m
+If you are running in Linux/OSX, you can set the JAVA_OPTS, right before you call the startup script by doing
+JAVA_OPTS='-Djava.awt.headless=true'
+
+
+****************************************************************************************************
+FILE SYSTEM INCONSISTENCY ERROR::
+
+https://prognotes.net/2018/04/linux-mint-initramfs-prompt-at-boot/
+fsck <system path> -y(for yes by default)
+And then reboot
+****************************************************************************************************
+
+JAVA
+INTERFACE (total abstraction)
+If a class implements an interface and does not provide method bodies for all functions specified in the interface, then the class must be declared abstract. That means all the methods in an interface are declared with an empty body and are public and all fields are public, static and final by default.
+Interfaces are used to implement abstraction. So the question arises why use interfaces when we have abstract classes?
+The reason is, abstract classes may contain non-final variables, whereas variables in interface are final, public and static.
+JAVA STATIC METHODS
+→ Static Method in Java belongs to the class and not its instances. A static method can access only static variables of class and invoke only static methods of the class.
+JAVA ENUM
+Enums are used when we know all possible values at compile time, such as choices on a menu, rounding modes, command line flags, etc. It is not necessary that the set of constants in an enum type stay fixed for all time.
+In Java (from 1.5), enums are represented using enum data type. Java enums are more powerful than C/C++ enums . In Java, we can also add variables, methods and constructors to it. The main objective of enum is to define our own data types(Enumerated Data Types).
+Java Enum internally inherits the Enum class, so it cannot inherit any other class
+It is possible for a Java enum class to have abstract methods too. If an enum class has an abstract method, then each instance of the enum class must implement it.
+Using an abstract method is useful when you need a different implementation of a method for each instance of a Java enum.
+Enum cannot inherit any class but can implement interfaces.
+ENUM SET
+EnumSet<Level> enumSet = EnumSet.of(Level.HIGH, Level.MEDIUM);
+ENUM MAP
+Java also contains a special Java Map implementation which can use Java enum instances as keys. Here is a Java EnumMap example:
+EnumMap<Level, String> enumMap = new EnumMap<Level, String>(Level.class);
+enumMap.put(Level.HIGH  , "High level");
+enumMap.put(Level.MEDIUM, "Medium level");
+enumMap.put(Level.LOW   , "Low level");
+String levelValue = enumMap.get(Level.HIGH);
+JAVA JDBC
+Java Database Connectivity.
+It’s a java API ( to connect and execute the query with the database.)
+It uses drivers to connect to the databases:
+JDBC-ODBC Bridge Driver, (Open Database Connectivity → ODBC by microsoft)
+Native Driver,
+Network Protocol Driver, and
+Thin Driver
+Earlier it used to be ODBC api but it was written in C (platform dependent) thus came JDBC.
+General steps:
+Register the Driver class (using forName() of Class)		Class.forName(“com.mysql.jdbc.Driver);
+Create connection (getConnection() method of DriverManager class)  			Connection conn=DriverManager.getConnection(”jdbc:mysql;://localhost:3306/db”,”parul”,”Kritter12!”);
+Create statement (createStatement() method of Connection interface)			Statement st=conn.createStatement();
+Execute queries (executeQuery() method of Statement interface)				Statement, CallableStatement,and PreparedStatement interfaces		Resultset rs=st.executeQuery(“select * from cust”);
+Close connection									conn.close();
+For Statement interface → createStatement();
+For PreparedStatement Interface → prepareStatement(); (extends Statement and you can give dynamic arguments as well!)
+TRANSACTION
+It’s like a group of sql queries.
+Have commit() and rollback() methods!
+ 
+BATCH PROCESSING
+Groups related sql queries and submit them at once to the database thus decreasing the communication call.
+The following method calls determines if jdbc driver supports batch mode or not!
+DatabaseMetaData dm=con.getMetaData();
+System.out.println(dm.supportsBatchUpdates());
+addbatch() → to add statements to the batch to be executed.
+executebatch() → starts the execution of a batch.returns an array of integers, and each element of the array represents the update count for the respective update statement.
+clearbatch() removes all the statements.
+ 
+ 
+SINGLETON CLASS 
+A design pattern.
+Means define a class with only one instance which can be globally accessed.
+A class must ensure that only a single instance should be created and single object can be used by all other classes.
+Two types:
+Early instantiation → at load time( we create the instance of the class at the time of declaring the static data member, so instance of the class is created at the time of classloading.).
+Lazy instantiation → at required time(we create the instance of the class in synchronized method or synchronized block, so instance of the class is created when required.) synchronize method will block the object for it’s use so it can’t be accessed by any other class.
+To have a singleton class, we need to have 1. A static member (object as it will take memory only once), 2. A private constructor → as it will protect the constructor to create  an object from outside the class, 3. Static factory method to give the object a global point of access.
+SETS
+It’s an interface which extends Collection class.
+Unordered collection in which duplicates are not allowed.
+Has methods like add,remove,clear,size to enhance functionality.
+Sets are implemented in Enumset,hashset,linkedhashset,treeset :: 
+java.util.EnumSet
+java.util.HashSet
+java.util.LinkedHashSet
+java.util.TreeSet
+Each of these Set implementations behaves a little differently with respect to the order of the elements when iterating the Set, and the time (big O notation) it takes to insert and access elements in the sets.
+HashSet is backed by a HashMap. It makes no guarantees about the sequence of the elements when you iterate them.
+LinkedHashSet differs from HashSet by guaranteeing that the order of the elements during iteration is the same as the order they were inserted into the LinkedHashSet. Reinserting an element that is already in the LinkedHashSet does not change this order.
+TreeSet also guarantees the order of the elements when iterated, but the order is the sorting order of the elements. In other words, the order in which the elements would be sorted if you used a Collections.sort() on a List or array containing these elements. This order is determined either by their natural order (if they implement Comparable), or by a specific Comparator implementation.
+JAVA ABSTRACT CLASSES
+Abstract class in Java is similar to interface except that it can contain default method implementation. An abstract class can have an abstract method without body and it can have methods with implementation also.
+only an abstract class can contain abstract methods
+In Java, it is mandatory to override abstract methods of the superclass in the subclass.
+The subclass of abstract class in java must implement all the abstract methods unless the subclass is also an abstract class.
+Java Abstract class can implement interfaces without even providing the implementation of interface methods.
+ 
+READING WRITING TO DISK FILE 
+FileWriter when writes is less.
+BufferedWriter wraps another writer (FileWriter)!
+ 
+Simple Logging Facade for JAVA(SLF4J)
+→ https://www.youtube.com/watch?v=SWHYrCXIL38
+The need for logging the errors and messages!
+Store those logs to a file for future reference!
+Java.util.logging package with Logger which has a static method called getLogger().  (built in library since jdk 1.4)
+It’s a facade that is not doing the actual work but is connecting to other log libraries that do the actual work (like log4j)!
+SLF4J is like an API that only has an interface implementation so the actual work is still not done by SLF4J but some other connected logging library!
+We need to have a jar of slf4j that is compatible with whatever log library we will be using and that jar again calls the library’s jar file!
+Logback and log4j2 are the successors of log4J library!
+ 
+ROLLINGFILEAPPENDER
+RollingFileAppender extends FileAppender to backup the log files when they reach a certain size.
+ 
+→ BasicConfigurator.configure () creates a console appender and configures the codes for simple logging.
+→ if we want to direct the logs to another file we need to have appenders!
+→ We can log into databases,files,console,Unix Syslog.
+→ log4j has three main components:
+loggers: Responsible for capturing logging information.
+appenders: Responsible for publishing logging information to various preferred destinations.
+layouts: Responsible for formatting logging information in different styles.
+→ in properties if we specify WARN then only warnings and logs that have higher levels will be recorded not the info and debug as they have lower levels! As ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF.
+To write your logging information into multiple files, you would have to use org.apache.log4j.RollingFileAppender class
+To write your logging information into files on a daily basis, you would have to use org.apache.log4j.DailyRollingFileAppender class which extends the FileAppender class and inherits all its properties.
+ 
+APACHE VELOCITY
+It’s main purpose is to divide the static content and the design part of your code!
+It’s a template engine which combines data and template.
+You give variables and references and html page would be created!
+Used as View component in MVC framework!
+It can generate XML,SQL, and other text formatted files but mostly for dynamic web pages.
+Initialize the velocity engine
+Read the template
+Put the data model in context object
+Merge the template with context data and render the view
+The primary job of the Velocity Engine is to generate content based on a template.
+Velocity is a useful tool for rendering the dynamic web pages.
+Any application working with velocity requires 2 parts:
+A velocity template “xyz.vm”
+A java file “abc.java”
+ 
+TESTING 
+Java has some testing frameworks like JUnit, TestNG.
+TestNG (Next Generation)
+→ It’s an open source testing framework used for automation testing suite.
+→  It can generates logs and html files
+→ you can group the test cases unlike JUnit.
+→ you can control the test cases like the pre-tests, etc.
+→ TestNG supports three additional levels such as @Before/After suite, @Before/AfterTest, and Before/AfterGroup i.e. multiple before and after annotations!
+→ Dependent methods are there which works for the same class or inherited class in which even if the test fails you still have the decision power of executing the dependent test method or not.
+→ We can create an xml file as well that will group the tests. Make suites.
+→We can disable the test cases (either in xml file or @test annotation)
+→  @test (enabled=false)! 
+→ in xml file we can use include and exclude!
+→ Groups are specified in the testng.xml file with <groups> tag. Groups can be specified either in the <suite> tag or <test> tag. If the <groups> tag is specified inside the <suite> tag, then it is applied to all the <test> tags of XML file. If the <groups> tag is specified within a particular <test> folder, then it is applied to that particular <test> tag only.
+→ a test can belong to multiple groups.
+@Test(groups= {"Group A","Group B"})  
+→ @parameters have <name value> pair in xml file.
+→ Listeners are implemented by the ITestListener interface. 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+JMockit
+http://abhinandanmk.blogspot.com/2012/06/jmockit-tutoriallearn-it-today-with.html
+ 
+https://jmockit.github.io/tutorial/Introduction.html
+It’s a library/mock framework that mocks the methods that are called from within a function and we are not testing those methods so we just make mocks for them, mocks object.
+It's used when we don’t want to call any third party class/entity to be executed just for the sake of testing! (Database wala example)
+So basically mocking is, as the name says, redefining the behaviour of an object or method to imitate or modify the original implementation to accommodate our test cases.
+JMockit Expectations class is used for mocking the results of a method by specifying what is expected when a particular method is invoked!
+Setting of expectations is called “record phase”
+When the actual call happens that is called “reply phase”
+@Mocked annotation is used for object/method to be mocked.
+we have the mocking API (also known as the "Expectations" API), intended for tests which use mocked dependencies. Finally, there is a small faking API (aka the "Mockups" API), which can be used for the creation and application of fake implementations that avoid the full cost of external components.
+ 
+Base64
+It’s also called Privacy Enhanced Electronic Mail (PEM).
+Base64 encoding converts binary data into text format.
+Primarily used in email encryption process.
+Three types of encoding and decoding classes:: 
+Basic encoding and decoding
+It uses the Base64 alphabet specified by Java in RFC 4648 and RFC 2045 for encoding and decoding operations. The encoder does not add any line separator character. The decoder rejects data that contains characters outside the base64 alphabet.
+URL and filename encoding and decoding
+It uses the Base64 alphabet specified by Java in RFC 4648 for encoding and decoding operations. The encoder does not add any line separator character. The decoder rejects data that contains characters outside the base64 alphabet.
+MIME
+It uses the Base64 alphabet as specified in RFC 2045 for encoding and decoding operations. The encoded output must be represented in lines of no more than 76 characters each and uses a carriage return '\r' followed immediately by a linefeed '\n' as the line separator. No line separator is added to the end of the encoded output. All line separators or other characters not found in the base64 alphabet table are ignored in decoding operation.
+https://gist.github.com/utsengar/1276960/9e99b409e8d57c624e2a16793faa9c16e3745db2
+ 
+TOMCAT
+→ to start tomcat
+$ /var/app/kritter/adserving/apache-tomcat-7.0.47/bin$ sudo ./startup.sh
+JAVA SERVLETS(Server Component)
+→ It’s a way to construct dynamic web pages using java.
+→ servlets are the Java programs that runs on the Java-enabled web server or application server.
+→ Its the helper application which helps in building the dynamic web pages!
+→ It resides on server performs the action there and sends the result back to the client.
+→ We can implement servlet interface or extend  genericservlet interface or extend httpservlet class.
+→ service() method is implemented with 2 objects:: 
+Request object (from client to server)
+Response object (from server to client)
+→ For mapping to the servlet we have “web.xml” file aka deployment descriptor that maps the request. It contains info like for which request which servlet to be called!
+→ all this is taken care by tomcat i.e. the web container!!
+→ Instead of xml files for mapping we now have annotations that does the job!
+We have javax.servlet and javax.servlet.http packages that have interfaces and classes for servlet api. (http wala has the protocol thats the only difference)
+Lifecycle of servlet interface: 
+Initialize the servlet (init)
+Service the servlet (service)
+Destroy the servlet (destroy)
+ 
+Webapp archetype command
+$ mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4
+(the above is in interactive mode)
+ 
+$ mvn archetype:generate -DgroupId=com.company.emailsending -DartifactId=email -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+ 
+Web applications are deployed under the $CATALINA_HOME\webapps directory.
+ 
+PLAY FRAMEWORK
+Every play project is SBT project (SBT is a build tool for scala and java projects like maven,ant).
+Open source web application framework (i.e. it supports the web development and helps in building and deploying web apps on the web) which follows MVC.
+Written in scala but applicable to other languages which converts to jvm bytecode.
+It follows convention over configuration i.e. it decreases the decisions coder has to make without compromising the flexibility. (eg you have a class called “sales” then you’ll have a database table called “sales” only unless you code otherwise).
+It displays errors in the browser.
+The Play Framework drastically improves developer productivity without sacrificing scalability.
+Offers Rapid development.
+By default RESTful (Representational state transfer).
+Play compiles and refreshes the modifications you make to your source files automatically, so you can easily work using a simple text editor.
+ 
+INSTALLATION
+https://www.playframework.com/documentation/2.2.3/Installing
+Download the zip file.
+Unzip it
+Add the path to the .bashrc and export it then source it.
+Execute the command : $ play help (should work!)
+ → Let’s first look at what happens at runtime. When you enter http://localhost:9000/ in your browser:
+The browser requests the root / URI from the HTTP server using the GET method.
+The Play internal HTTP Server receives the request.
+Play resolves the request using the routes file, which maps URIs to controller action methods.
+The action method renders the index page, using Twirl templates.
+The HTTP server returns the response as an HTML page.
+
+ 
+Go to the project folder and in play console type “$ play” “$ run” and open localhost:9000.
+ 
+NGINX (Engine X)
+High performance web server.
+For static pages.
+Developed to tackle 10k problem i.e. to serve 10k concurrent connections.
+Can be stand alone web server or stand in front of other web server as a reverse proxy.
+It can handle SSL,HTTPs and then pass normal http request to other servers on the back or any other port. Then the other web servers only handles normal http requests.
+By default nginx creates error logs and access logs. And can be found in /var/log/nginx.
+ACCESS LOG → records all the visitors coming to your site like their IP address, browser details, etc.. We can analyze the traffic coming to the site.
+We can enable logs. Like to enable access log in http/server section, we need to specify the file name (*) and log format which if not specified will be default.
+ngxtop is a real time metric for nginx. It reads access logs and displays useful nginx server. It gives info as such what is happening in nginx server in real time.
+It tries to determine the default location and format of access log file.
+Http request status → that tells the results of the client’s request. (divided into 5 categories )
+1XX → informational i.e. tells protocol information.
+2XX → Success i.e client’s request was accepted successfully. (200 OK)
+3XX → Redirection i.e. client must take additional action to complete the request.
+4XX → Client error i.e. error from client’s side. (404)
+5XX → server error i.e. error from server’s side.
+To see ngxtop info
+ngxtop -l /var/log/nginx/access.log --no-follow
+--no-follow flag is to tell the previous log info as well i.e. it reads the existing logs as well.
+ngxtop top remote_addr --no-follow
+This tells the IP addresses of the clients
+CONDITIONAL LOGGING 
+map $status $loggable {
+    ~^[23]  0;
+    default 1;
+}
+access_log /path/to/access.log combined if=$loggable; (it excludes 2XX and 3XX status codes).
+ 
+ 
+STARTING/RESTARTING NGINX
+→ Go to /etc/init.d and then type “service nginx start” go to localhost:80 to check! 
+→ systemctl start nginx
+→ /etc/nginx has the nginx.conf file i.e. the configuration file. 
+ 	→ service nginx restart (after making changes to the configuration file)
+nginx has one master process and several worker processes.
+Master process read and evaluate configurations and maintain worker processes.
+Worker processes do the actual processing of requests.
+Once nginx is started, it can be controlled using executables with -s parameter.
+To add a virtual host, navigate to the /etc/nginx/sites-available folder. This is the default location for NGINX server blocks.
+ 
+CHANGING PERMISSIONS OF A DIRECTORY
+sudo chown -R $USER:$USER /var/www
+ 
+APACHE PIG 
+High level programming language used to analyze large data sets.
+Result of development at yahoo.
+Pig is an abstraction over hadoop to build the gap between map and reduce jobs.
+Pig allows people to focus more on analyzing rather than writing map/reduce programs.
+Just like a pig who eats anything, this pig can also analyze any kind of data.
+Pig architecture consists of 2 things:
+Pig latin which is a language.
+A runtime environment for running PigLatin programs
+PigLatin programs consists of a series of operations and transformations that takes the input and produces output.
+Pig is a stiffened language that uses keywords like “Join, group and filter”.
+ 
+
+Pig has 2 execution modes:
+Local mode → runs on single jvm and local file system. (pig-x local)
+Map reduce mode → queries written in PigLatin are translated into mapreduce jobs and run on a hadoop cluster.(pig-x mapreduce)
+Any task achieved using pig can also be achieved using java in hadoop.
+PigLatin accepts relation as input and gives relation as output.
+It can scan multiple lines.
+Each line must end with semi colon.
+() for tuple datatype i..e ordered set of fields
+[] for map datatype i.e. set of key-value pair
+{} for bag datatype i.e. set of tuples.
+Lines = LOAD ‘~/Desktop/data.txt’ AS (line: charArray);   // lines is a bag
+ 
+ 
+BLOGS READ / QUORA
+QUORA
+How will ad tech reshape the advertising industry? (Rohan Rai)
+
+BLOG
+AdTech: Through The Journey of Mr. Romeo (Suprabh Sanket)
+
+

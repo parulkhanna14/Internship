@@ -1,0 +1,11 @@
+@(userForm: Form[User])
+@import helper._
+@import helper.twitterBootstrap._
+@main("Example") {
+    <h1>Simple form</h1>
+    @helper.form(action = routes.Application.submit(),'id -> "userForm"){
+    @helper.inputText(userForm("username"))
+    @helper.inputText(userForm("password"))
+    <input type="submit" class="btn primary" value="SEND">
+    }
+}

@@ -1,0 +1,15 @@
+Using Pig find the most occurred start letter.
+
+Put the file from local system into the hdfs system.
+
+
+lines = LOAD '/input/data.txt' AS (line: chararray);
+tokens = FOREACH lines GENERATE flatten(TOKENIZE(line))   As token: chararray;  
+grunt> letters = FOREACH tokens GENERATE SUBSTRING(token,0,1) as letter: chararray;    
+grunt> lettergrp = GROUP letters by letter;                                            
+grunt> countletter  = FOREACH  lettergrp  GENERATE group  , COUNT(letters);            
+grunt> OrderCnt = ORDER countletter  BY  $1  DESC;                                     
+grunt> result  =LIMIT    OrderCnt    1;                                                
+grunt> STORE   result   into '/output';                                                
+ 
+

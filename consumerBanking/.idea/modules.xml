@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../bank/BankInterface/BankInterface.iml" filepath="$PROJECT_DIR$/../bank/BankInterface/BankInterface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bank/Mainmodule/Mainmodule.iml" filepath="$PROJECT_DIR$/../bank/Mainmodule/Mainmodule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bank/banks/banks.iml" filepath="$PROJECT_DIR$/../bank/banks/banks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consumerBanking.iml" filepath="$PROJECT_DIR$/consumerBanking.iml" />
+    </modules>
+  </component>
+</project>

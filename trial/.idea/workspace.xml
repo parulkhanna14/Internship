@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="017ae6dd-3868-4b1a-8937-1bf5fc79f3ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../multimoddb/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoddb/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoddb/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoddb/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoddb/multimoddb.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoddb/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multimoddb/src/main/java/com/company/dbclass/Dbclass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../profiles/enum/src/main/java/com/company1/enuminterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company1/Main1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/BankInterface/target/BankInterface-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/BankInterface/target/classes/com/company1/bankint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/BankInterface/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/BankInterface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/BankInterface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/BankInterface/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Mainmodule/Mainmodule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../bank/Mainmodule/Mainmodule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Mainmodule/target/Mainmodule-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Mainmodule/target/classes/com/company3/Mainclass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Mainmodule/target/lib/BankInterface-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Mainmodule/target/lib/banks-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Mainmodule/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Mainmodule/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Mainmodule/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/Mainmodule/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/banks/banks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../bank/banks/banks.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/banks/target/banks-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/banks/target/classes/company2/Bankroi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/banks/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/banks/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/banks/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/banks/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../currency_program/.idea/my_currency_calculator.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../file1" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UYpZhspAkqOqvFqWTGcQLUgVIS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.company1.Main1" />
+      <module name="trial" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="017ae6dd-3868-4b1a-8937-1bf5fc79f3ae" name="Default Changelist" comment="" />
+      <created>1575543439230</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575543439230</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="447" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575544097813">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="447" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/59.27.1861.1053@59.27.1861.1053" timestamp="1575544097813" />
+    <state x="823" y="323" width="324" height="572" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1575546123055">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="823" y="323" width="324" height="572" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/59.27.1861.1053@59.27.1861.1053" timestamp="1575546123055" />
+    <state x="740" y="326" width="489" height="567" key="DetectedRootsChooserDialog" timestamp="1575546150451">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="740" y="326" width="489" height="567" key="DetectedRootsChooserDialog/59.27.1861.1053@59.27.1861.1053" timestamp="1575546150451" />
+    <state x="773" y="367" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575609157059">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="773" y="367" width="424" height="484" key="FileChooserDialogImpl/59.27.1861.1053@59.27.1861.1053" timestamp="1575609157059" />
+    <state width="1815" height="278" key="GridCell.Tab.0.bottom" timestamp="1575615173993">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state width="1815" height="278" key="GridCell.Tab.0.bottom/59.27.1861.1053@59.27.1861.1053" timestamp="1575615173993" />
+    <state width="1815" height="278" key="GridCell.Tab.0.center" timestamp="1575615173990">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state width="1815" height="278" key="GridCell.Tab.0.center/59.27.1861.1053@59.27.1861.1053" timestamp="1575615173990" />
+    <state width="1815" height="278" key="GridCell.Tab.0.left" timestamp="1575615173989">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state width="1815" height="278" key="GridCell.Tab.0.left/59.27.1861.1053@59.27.1861.1053" timestamp="1575615173989" />
+    <state width="1815" height="278" key="GridCell.Tab.0.right" timestamp="1575615173991">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state width="1815" height="278" key="GridCell.Tab.0.right/59.27.1861.1053@59.27.1861.1053" timestamp="1575615173991" />
+    <state x="478" y="187" width="1024" height="845" key="SettingsEditor" timestamp="1575546157238">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="478" y="187" width="1024" height="845" key="SettingsEditor/59.27.1861.1053@59.27.1861.1053" timestamp="1575546157238" />
+    <state x="298" y="154" width="1372" height="796" key="new project wizard" timestamp="1575615090012">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="298" y="154" width="1372" height="796" key="new project wizard/59.27.1861.1053@59.27.1861.1053" timestamp="1575615090012" />
+  </component>
+</project>
